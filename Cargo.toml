@@ -7,11 +7,11 @@ license = "MIT"
 repository = "https://github.com/exodia-the-forbidden-one/dna-rs"
 homepage = "https://github.com/exodia-the-forbidden-one/dna-rs"
 keywords = [
-    "domainnameapi",
-    "dna",
-    "domainnameapi.com",
+    "domain-name-api",
+    "dns-api",
+    "domain-management",
     "domain-reseller",
-    "domain-registration",
+    "whois",
 ]
 categories = ["api-bindings", "web-programming"]
 
