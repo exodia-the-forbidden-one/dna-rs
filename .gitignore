@@ -1,0 +1,115 @@
+# ── Rust / Cargo ─────────────────────────────────────────────────────────────
+
+# Build output
+/target/
+
+# Cargo lock file – libraries should NOT commit this.
+# (Only binary crates / applications commit Cargo.lock)
+# See: https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries
+Cargo.lock
+
+# Packed crate files produced by `cargo package`
+*.crate
+
+# ── Credentials & secrets ─────────────────────────────────────────────────────
+
+# cargo login writes tokens here – never commit
+.cargo/credentials
+.cargo/credentials.toml
+
+# Generic secrets / env files
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.toml
+secrets.json
+
+# ── IDEs & editors ───────────────────────────────────────────────────────────
+
+# JetBrains (RustRover, CLion, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+!.vscode/extensions.json   # keep shared extension recommendations
+!.vscode/settings.json     # keep shared formatter/linter settings
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+Session.vim
+.vim/
+
+# Emacs
+*#
+.\#*
+*.elc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ── Operating system ──────────────────────────────────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# ── Logs & temporary files ────────────────────────────────────────────────────
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ── Coverage & profiling ──────────────────────────────────────────────────────
+
+# cargo-tarpaulin
+tarpaulin-report.html
+cobertura.xml
+lcov.info
+
+# cargo-llvm-cov
+coverage/
+*.profraw
+*.profdata
+
+# perf
+perf.data
+perf.data.old
+flamegraph.svg
+
+# ── Benchmarks ────────────────────────────────────────────────────────────────
+
+# criterion benchmark output
+criterion/
+
+# ── Documentation ─────────────────────────────────────────────────────────────
+
+# Locally generated docs (docs.rs builds these on its own)
+/doc/
