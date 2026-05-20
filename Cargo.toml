@@ -7,13 +7,13 @@ license = "MIT"
 repository = "https://github.com/exodia-the-forbidden-one/dna-rs"
 homepage = "https://github.com/exodia-the-forbidden-one/dna-rs"
 keywords = [
-    "domain name api",
+    "domainnameapi",
     "dna",
     "domainnameapi.com",
-    "domain reseller",
-    "domain registration",
+    "domain-reseller",
+    "domain-registration",
 ]
-categories = ["api-bindings", "api client", "web-programming"]
+categories = ["api-bindings", "web-programming"]
 
 [dependencies]
 reqwest = { version = "0.12", features = [
