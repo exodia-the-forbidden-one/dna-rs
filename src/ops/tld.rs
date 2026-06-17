@@ -5,12 +5,14 @@ use crate::ops::util::parse_tld_pricing;
 
 impl DnaClient {
     /// Fetch TLD list and pricing matrix.
-    ///
-    /// `count` controls how many TLDs to return (default: 20).
-    pub async fn get_tld_list(&self, count: u32) -> DnaResult<Vec<TldInfo>> {
+    pub async fn get_tld_list(
+        &self,
+        result_count: u32,
+        skip_count: u32,
+    ) -> DnaResult<Vec<TldInfo>> {
         let query = [
-            ("MaxResultCount", count.to_string()),
-            ("SkipCount", "0".to_string()),
+            ("MaxResultCount", result_count.to_string()),
+            ("SkipCount", skip_count.to_string()),
         ];
         let raw: serde_json::Value = self.http.get("products/tlds", Some(&query)).await?;
 
