@@ -45,3 +45,9 @@ pub struct TldInfo {
     /// Currency code per operation type.
     pub currencies: HashMap<String, String>,
 }
+
+#[derive(Debug)]
+pub struct TldListResponse {
+    pub tld_items: Vec<TldInfo>,
+    pub total_count: u32,
+}

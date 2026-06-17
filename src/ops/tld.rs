@@ -1,5 +1,6 @@
 use crate::client::DnaClient;
 use crate::error::DnaResult;
+use crate::models::TldListResponse;
 use crate::models::tld::{TldInfo, TldItem};
 use crate::ops::util::parse_tld_pricing;
 
@@ -9,12 +10,17 @@ impl DnaClient {
         &self,
         result_count: u32,
         skip_count: u32,
-    ) -> DnaResult<Vec<TldInfo>> {
+    ) -> DnaResult<TldListResponse> {
         let query = [
             ("MaxResultCount", result_count.to_string()),
             ("SkipCount", skip_count.to_string()),
         ];
         let raw: serde_json::Value = self.http.get("products/tlds", Some(&query)).await?;
+
+        let total_count = raw
+            .get("totalCount")
+            .and_then(serde_json::Value::as_u64)
+            .unwrap_or(0) as u32;
 
         let items = raw
             .get("items")
@@ -52,6 +58,9 @@ impl DnaClient {
             });
         }
 
-        Ok(result)
+        Ok(TldListResponse {
+            tld_items: result,
+            total_count,
+        })
     }
 }
